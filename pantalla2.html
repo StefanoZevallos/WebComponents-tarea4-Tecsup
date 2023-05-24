@@ -21,15 +21,21 @@
         .container {
             height: 100vh;
         }
+
+        .cajas-container {
+            border: 1px solid black;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <header-componente></header-componente>
+        <div class="cajas-container">
         <welcome-componente></welcome-componente>
         <formulario-componente></formulario-componente>
         <login-componente></login-componente>
+        </div>
     </div>
     <script>
         class HeaderComponente extends HTMLElement {
