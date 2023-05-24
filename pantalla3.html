@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 65.5%;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        .container {
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header-componente></header-componente>
+        <main-componente></main-componente>
+        <boton-componente> </boton-componente>
+    </div>
+    <script>
+        class HeaderComponente extends HTMLElement {
+            constructor() {
+                super();
+
+                this._shadowRoot = this.attachShadow({ mode: 'open' });
+            }
+
+            connectedCallback() {
+                this.render()
+
+            }
+
+            render() {
+                this._shadowRoot.innerHTML =
+                    `
+      <div class="caja-header">
+      <div class="menu">
+          <div> < Back</div>
+      </div>
+      <div class="logo"> 
+          <p class="logop1"> Little </p>
+          <p class="logop2"> Lemmon</p>
+      </div>
+      <div class="loginycart">
+          <div class="cartcontainer">
+          <p class="loginycartp2"> </p>
+          <div class="pt2"> 
+              <div class="cl1"> </div>
+              <div class="cl2"> </div>
+          </div>    
+          </div>
+      </div>
+    </div>
+      ${this.getStyles()} 
+      `
+            }
+            getStyles() {
+                return `
+      <style>
+      *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0; 
+            }
+
+        html{
+        font-size: 65.5%;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            }       
+
+        .container {
+            height: 100vh;
+        }
+        .caja-header{
+            height: 5vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            align-items: center;
+        }
+
+        .menu{
+            margin-left: 1rem;
+            width: 7.5rem;
+            height: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: green;
+            font-size: 1.8rem;
+        }
+
+        /*  LOGO */
+        .logo{
+            height: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logop1 {
+            font-weight: bold;
+            color: gold;
+            font-size: 2rem;
+            margin-right: 0.1rem;
+        }
+
+        .logop2 {
+            font-weight: bold;
+            color: green;
+            font-size: 2rem;
+        }
+
+        /* LOGIN Y CART */
+        .loginycart{
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 1.8rem;
+        }
+
+        .cartcontainer {
+            display: flex;
+            flex-direction: column;
+            width: 30px;
+            height: 30px;
+            margin-right: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .loginycartp2{
+            border: 1px solid gold;
+            margin-right: 1rem;
+            width: 100%;
+            height: 60%;
+        }
+
+        .pt2{
+            width: 100%;
+            height: 40%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }  
+
+        .cl1 {
+            width: 12px;
+            height: 100%;
+            background-color: green;
+            border-radius: 150px;
+        }
+
+        .cl2 {
+            width: 12px;
+            height: 100%;
+            background-color: green;
+            border-radius: 150px;
+        }
+
+    </style>
+      `
+            }
+        }
+        customElements.define('header-componente', HeaderComponente);
+        class MainComponente extends HTMLElement {
+            constructor() {
+                super();
+
+                this._shadowRoot = this.attachShadow({ mode: 'open' });
+            }
+
+            connectedCallback() {
+                this.render()
+
+            }
+
+            render() {
+                this._shadowRoot.innerHTML =
+                    `
+                    <div class="caja1"> 
+        <div class="caja1-texto-container">
+        <h1> Sign up </h1>
+        </div>
+    </div>
+    <div class="caja2"> 
+        <form action="backend.com" class="formulario">
+            <fieldset >
+                <div class="input-container1">
+                <label for="nombres"> First Name </label>
+                <input type="text" name="nombres" id="nombres">
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="input-container2">
+                <label for="nombres"> Last Name </label>
+                <input type="password" name="nombres" id="nombres">
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="input-container2">
+                <label for="nombres"> Create a username </label>
+                <input type="password" name="nombres" id="nombres">
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="input-container2">
+                <label for="nombres"> Phone Number </label>
+                <input type="text" name="nombres" id="nombres">
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="input-container2">
+                <label for="nombres"> Email </label>
+                <input type="text" name="nombres" id="nombres">
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="input-container2">
+                <label for="nombres"> Password </label>
+                <input type="text" name="nombres" id="nombres">
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="input-container2">
+                <label for="nombres"> Confirm Password </label>
+                <input type="text" name="nombres" id="nombres">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+      ${this.getStyles()} 
+      `
+            }
+            getStyles() {
+                return `
+      <style>
+      *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0; 
+            }
+
+        html{
+        font-size: 65.5%;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            }       
+
+            .caja1 {
+            height: 11vh;
+            justify-content: center;
+            display: flex;
+        }
+
+        .caja1-texto-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: green;
+            font-size: 2rem;
+            font-style: italic;
+        }
+
+    /* ------------------------------------------------- */
+
+        .caja2 {
+            height: 73vh;
+            display: flex; 
+            justify-content: center;
+            /* align-items: center; */
+        }
+
+        .formulario {
+            margin-top: 0.85rem;
+        }
+
+        .formulario fieldset {
+            border-radius: 2rem;
+            background-color: green;
+            height: 6.8rem;
+            width: 42rem;  
+            border: 0;
+            margin-bottom:1rem ;
+            display: flex
+            }
+
+        .formulario fieldset div  {
+            display: grid;
+            gap: 1.8rem;
+            grid-template-columns: 120px 100fr;
+            align-items: center;
+        }  
+
+        .formulario fieldset div label{
+            margin-left: 1.5rem;
+            width: 140px;
+            color: white;
+            font-size: 2rem;
+            text-align: start;
+        }
+
+        .formulario fieldset div input {
+            width: 290px;
+            height: 4.5rem;
+            border: 0;
+            border-radius: 1.5rem;
+        }
+
+    </style>
+      `
+            }
+        }
+        customElements.define('main-componente', MainComponente); 
+
+        class BotonCompomente extends HTMLElement {
+            constructor() {
+                super();
+
+                this._shadowRoot = this.attachShadow({ mode: 'open' });
+            }
+
+            connectedCallback() {
+                this.render()
+
+            }
+
+            render() {
+                this._shadowRoot.innerHTML =
+                    `
+                    <div class="ok-container">
+    <fieldset class="ok">
+      <p> SUBMIT </p>
+    </fieldset>
+    </div>
+      ${this.getStyles()} 
+      `
+            }
+            getStyles() {
+                return `
+      <style>
+      *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0; 
+            }
+
+        html{
+        font-size: 65.5%;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            }       
+
+        .ok-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+                    }
+
+       .ok { 
+            background-color: gold;
+            height: 3.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;  
+            width: 39.8rem;  
+            border: 0;
+            margin-top: 2rem;
+                    }
+
+       .ok p {
+        color: green;
+        font-size: 3.4rem;
+        object-fit: cover;
+        font-style: italic;
+                    }
+
+    </style>
+      `
+            }
+        }
+        customElements.define('boton-componente', BotonCompomente);    
+    </script>
+</body>
+
+</html>

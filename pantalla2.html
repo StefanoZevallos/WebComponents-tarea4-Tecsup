@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 65.5%;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        .container {
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header-componente></header-componente>
+        <main-componente></main-componente>
+    </div>
+    <script>
+        class HeaderComponente extends HTMLElement {
+            constructor() {
+                super();
+
+                this._shadowRoot = this.attachShadow({ mode: 'open' });
+            }
+
+            connectedCallback() {
+                this.render()
+
+            }
+
+            render() {
+                this._shadowRoot.innerHTML =
+                    `
+      <div class="caja-header">
+      <div class="menu">
+          <div> < Back</div>
+      </div>
+      <div class="logo"> 
+          <p class="logop1"> Little </p>
+          <p class="logop2"> Lemmon</p>
+      </div>
+      <div class="loginycart">
+          <div class="cartcontainer">
+          <p class="loginycartp2"> </p>
+          <div class="pt2"> 
+              <div class="cl1"> </div>
+              <div class="cl2"> </div>
+          </div>    
+          </div>
+      </div>
+    </div>
+      ${this.getStyles()} 
+      `
+            }
+            getStyles() {
+                return `
+      <style>
+      *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0; 
+            }
+
+        html{
+        font-size: 65.5%;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            }       
+
+        .container {
+            height: 100vh;
+        }
+        .caja-header{
+            height: 5vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            align-items: center;
+        }
+
+        .menu{
+            margin-left: 1rem;
+            width: 7.5rem;
+            height: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: green;
+            font-size: 1.8rem;
+        }
+
+        /*  LOGO */
+        .logo{
+            height: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logop1 {
+            font-weight: bold;
+            color: gold;
+            font-size: 2rem;
+            margin-right: 0.1rem;
+        }
+
+        .logop2 {
+            font-weight: bold;
+            color: green;
+            font-size: 2rem;
+        }
+
+        /* LOGIN Y CART */
+        .loginycart{
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 1.8rem;
+        }
+
+        .cartcontainer {
+            display: flex;
+            flex-direction: column;
+            width: 30px;
+            height: 30px;
+            margin-right: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .loginycartp2{
+            border: 1px solid gold;
+            margin-right: 1rem;
+            width: 100%;
+            height: 60%;
+        }
+
+        .pt2{
+            width: 100%;
+            height: 40%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }  
+
+        .cl1 {
+            width: 12px;
+            height: 100%;
+            background-color: green;
+            border-radius: 150px;
+        }
+
+        .cl2 {
+            width: 12px;
+            height: 100%;
+            background-color: green;
+            border-radius: 150px;
+        }
+
+    </style>
+      `
+            }
+        }
+        customElements.define('header-componente', HeaderComponente);
+
+        class MainComponente extends HTMLElement {
+            constructor() {
+                super();
+
+                this._shadowRoot = this.attachShadow({ mode: 'open' });
+            }
+
+            connectedCallback() {
+                this.render()
+
+            }
+
+            render() {
+                this._shadowRoot.innerHTML =
+                    `
+      <div class="cajas-container">
+    <div class="caja1"> 
+        <div class="caja1-texto-container">
+        <h1> Welcome to </h1>
+        <h1> Little Lemmon </h1>
+        </div>
+    </div>
+    <div class="caja2"> 
+        <form action="backend.com" class="formulario">
+            <fieldset >
+                <div class="input-container1">
+                <label for="nombres"> Username </label>
+                <input type="text" name="nombres" id="nombres">
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="input-container2">
+                <label for="nombres"> Password </label>
+                <input type="password" name="nombres" id="nombres">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="caja3">
+        <p> LOGIN</p>
+        <p> Sin cuenta?, create una aquí</p>
+    </div>
+    </div>
+      ${this.getStyles()} 
+      `
+            }
+            getStyles() {
+                return `
+      <style>
+      *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0; 
+            }
+
+        html{
+        font-size: 65.5%;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            }       
+
+            .cajas-container {
+            border: 1px solid black;
+        }
+
+        /* ----------------- */
+
+        .caja1 {
+            height: 30vh;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        .caja1-texto-container {
+            margin-top: 2rem;
+        }
+
+        .caja1 h1:nth-child(1) {
+            font-size: 4rem;
+            font-style: italic;
+            color: green;
+        }
+
+        .caja1 h1:nth-child(2) {
+            font-size: 4rem;
+            font-style: italic;
+            color: gold;
+        }
+    /* ------------------------------------------------- */
+
+    /*  */
+        .caja2 {
+            height: 33vh;
+            display: flex; 
+            justify-content: center;
+        }
+
+        .formulario fieldset:nth-child(1) {
+            border-radius: 2rem;
+            background-color: green;
+            height: 9rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;  
+            width: 35rem;  
+            border: 0;
+            }
+
+        .input-container1 label{
+        font-size: 1.8rem;
+        margin-right: 4.2rem;
+        color: white;
+        
+        } 
+        
+        .input-container1 input {
+            height: 4.2rem;
+            border: 0; 
+            border-radius: 2rem;
+        }
+
+        .formulario fieldset:nth-child(2) {
+            border-radius: 2rem;
+            background-color: green;
+            margin-top: 3rem;
+            margin-bottom: 6rem;
+            height: 9rem;
+            width: 35rem;  
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 0;
+        }
+
+        .input-container2 label{
+        color: white;
+        font-size: 1.8rem;
+        margin-right: 2rem;
+        } 
+        
+        .input-container2 input {
+            height: 4.2rem;
+            border: 0;
+            border-radius: 2rem;
+        }
+        /* -------------------------------------------------- */
+        .caja3 {
+            height: 32vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+        .caja3 p:nth-child(1) {
+            align-items: center;
+            height: 25;
+            display: flex;
+            justify-content: center;
+            width: 100px;
+            color: green;
+            border-radius: 1rem;
+            background-color: gold;
+            margin-top: 1rem;
+            margin-bottom: 5rem;
+            font-size: 2rem;
+        }
+
+        .caja3 p:nth-child(2) {
+            font-size: 2.1rem;
+            color: darkgoldenrod;
+        }
+
+    </style>
+      `
+            }
+        }
+        customElements.define('main-componente', MainComponente);
+    </script>
+</body>
+
+</html>
