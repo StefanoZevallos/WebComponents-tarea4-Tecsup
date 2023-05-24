@@ -27,7 +27,8 @@
 <body>
     <div class="container">
         <header-componente></header-componente>
-        <main-componente></main-componente>
+        <sign-up> </sign-up>
+        <formulario-componente></formulario-componente>
         <boton-componente> </boton-componente>
     </div>
     <script>
@@ -177,7 +178,8 @@
             }
         }
         customElements.define('header-componente', HeaderComponente);
-        class MainComponente extends HTMLElement {
+
+        class SignUpComponente extends HTMLElement {
             constructor() {
                 super();
 
@@ -197,7 +199,62 @@
         <h1> Sign up </h1>
         </div>
     </div>
-    <div class="caja2"> 
+      ${this.getStyles()} 
+      `
+            }
+            getStyles() {
+                return `
+      <style>
+      *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0; 
+            }
+
+        html{
+        font-size: 65.5%;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            }       
+
+            .caja1 {
+            height: 11vh;
+            justify-content: center;
+            display: flex;
+        }
+
+        .caja1-texto-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: green;
+            font-size: 2rem;
+            font-style: italic;
+        }
+
+    /* ------------------------------------------------- */
+
+    </style>
+      `
+            }
+        }
+        customElements.define('sign-up', SignUpComponente);
+
+        class FormularioComponente extends HTMLElement {
+            constructor() {
+                super();
+
+                this._shadowRoot = this.attachShadow({ mode: 'open' });
+            }
+
+            connectedCallback() {
+                this.render()
+
+            }
+
+            render() {
+                this._shadowRoot.innerHTML =
+                    `
+                    <div class="caja2"> 
         <form action="backend.com" class="formulario">
             <fieldset >
                 <div class="input-container1">
@@ -260,24 +317,7 @@
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             }       
 
-            .caja1 {
-            height: 11vh;
-            justify-content: center;
-            display: flex;
-        }
-
-        .caja1-texto-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: green;
-            font-size: 2rem;
-            font-style: italic;
-        }
-
-    /* ------------------------------------------------- */
-
-        .caja2 {
+            .caja2 {
             height: 73vh;
             display: flex; 
             justify-content: center;
@@ -320,11 +360,13 @@
             border-radius: 1.5rem;
         }
 
+    /* ------------------------------------------------- */
+
     </style>
       `
             }
         }
-        customElements.define('main-componente', MainComponente); 
+        customElements.define('formulario-componente', FormularioComponente);
 
         class BotonCompomente extends HTMLElement {
             constructor() {
