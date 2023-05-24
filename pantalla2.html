@@ -27,7 +27,9 @@
 <body>
     <div class="container">
         <header-componente></header-componente>
-        <main-componente></main-componente>
+        <welcome-componente></welcome-componente>
+        <formulario-componente></formulario-componente>
+        <login-componente></login-componente>
     </div>
     <script>
         class HeaderComponente extends HTMLElement {
@@ -177,7 +179,7 @@
         }
         customElements.define('header-componente', HeaderComponente);
 
-        class MainComponente extends HTMLElement {
+        class WelcomeComponente extends HTMLElement {
             constructor() {
                 super();
 
@@ -192,34 +194,12 @@
             render() {
                 this._shadowRoot.innerHTML =
                     `
-      <div class="cajas-container">
-    <div class="caja1"> 
-        <div class="caja1-texto-container">
-        <h1> Welcome to </h1>
-        <h1> Little Lemmon </h1>
-        </div>
-    </div>
-    <div class="caja2"> 
-        <form action="backend.com" class="formulario">
-            <fieldset >
-                <div class="input-container1">
-                <label for="nombres"> Username </label>
-                <input type="text" name="nombres" id="nombres">
+            <div class="caja1"> 
+                <div class="caja1-texto-container">
+                <h1> Welcome to </h1>
+                <h1> Little Lemmon </h1>
                 </div>
-            </fieldset>
-            <fieldset>
-                <div class="input-container2">
-                <label for="nombres"> Password </label>
-                <input type="password" name="nombres" id="nombres">
-                </div>
-            </fieldset>
-        </form>
-    </div>
-    <div class="caja3">
-        <p> LOGIN</p>
-        <p> Sin cuenta?, create una aquí</p>
-    </div>
-    </div>
+            </div>
       ${this.getStyles()} 
       `
             }
@@ -236,10 +216,6 @@
         font-size: 65.5%;
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             }       
-
-            .cajas-container {
-            border: 1px solid black;
-        }
 
         /* ----------------- */
 
@@ -266,8 +242,61 @@
             color: gold;
         }
     /* ------------------------------------------------- */
+      `
+            }
+        }
+        customElements.define('welcome-componente', WelcomeComponente);
 
-    /*  */
+        class FormularioComponente extends HTMLElement {
+            constructor() {
+                super();
+
+                this._shadowRoot = this.attachShadow({ mode: 'open' });
+            }
+
+            connectedCallback() {
+                this.render()
+
+            }
+
+            render() {
+                this._shadowRoot.innerHTML =
+                    `
+                    <div class="caja2"> 
+        <form action="backend.com" class="formulario">
+            <fieldset >
+                <div class="input-container1">
+                <label for="nombres"> Username </label>
+                <input type="text" name="nombres" id="nombres">
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="input-container2">
+                <label for="nombres"> Password </label>
+                <input type="password" name="nombres" id="nombres">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+      ${this.getStyles()} 
+      `
+            }
+            getStyles() {
+                return `
+      <style>
+      *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0; 
+            }
+
+        html{
+        font-size: 65.5%;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            }       
+
+        /* ----------------- */
+
         .caja2 {
             height: 33vh;
             display: flex; 
@@ -322,7 +351,50 @@
             border: 0;
             border-radius: 2rem;
         }
-        /* -------------------------------------------------- */
+    /* ------------------------------------------------- */
+      `
+            }
+        }
+        customElements.define('formulario-componente', FormularioComponente);
+        
+        class LoginComponente extends HTMLElement {
+            constructor() {
+                super();
+
+                this._shadowRoot = this.attachShadow({ mode: 'open' });
+            }
+
+            connectedCallback() {
+                this.render()
+
+            }
+
+            render() {
+                this._shadowRoot.innerHTML =
+                    `
+                <div class="caja3">
+                <p> LOGIN</p>
+                <p> Sin cuenta?, create una aquí</p>
+                </div>
+      ${this.getStyles()} 
+      `
+            }
+            getStyles() {
+                return `
+      <style>
+      *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0; 
+            }
+
+        html{
+        font-size: 65.5%;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            }       
+
+        /* ----------------- */
+
         .caja3 {
             height: 32vh;
             display: flex;
@@ -348,12 +420,11 @@
             font-size: 2.1rem;
             color: darkgoldenrod;
         }
-
-    </style>
+    /* ------------------------------------------------- */
       `
             }
         }
-        customElements.define('main-componente', MainComponente);
+        customElements.define('login-componente', LoginComponente);
     </script>
 </body>
 
